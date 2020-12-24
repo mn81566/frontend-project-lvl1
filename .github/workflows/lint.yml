@@ -38,3 +38,6 @@ jobs:
         # with:
         #   coverageCommand: make test-coverage
         #   debug: true
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
