@@ -1,5 +1,5 @@
-install: install-deps
-
+install: 
+	npm install
 brain-games:
 	node bin/brain-games.js
 publish:
