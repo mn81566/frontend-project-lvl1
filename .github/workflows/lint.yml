@@ -20,7 +20,8 @@ jobs:
     steps:
       - name: Run linter
         # Run Linter
-        run: make lint
+        run: |
+          make lint
         # Add Code Climate secret key
         # env:
         #   CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
