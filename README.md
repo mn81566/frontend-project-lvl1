@@ -5,4 +5,10 @@
 
 [![Node CI](https://github.com/mn81566/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/mn81566/frontend-project-lvl1/actions)
 
+#Игра: "Проверка на чётность"
+```brain-even
 [![asciicast](https://asciinema.org/a/clyfXWGx26KoRuqYzf9S0eCpi.svg)](https://asciinema.org/a/clyfXWGx26KoRuqYzf9S0eCpi)
+
+#Игра: "Калькулятор"
+```brain-calc
+[![asciicast](https://asciinema.org/a/p2Gw7HL0hpuDCXfsgobNOhcgx.svg)](https://asciinema.org/a/p2Gw7HL0hpuDCXfsgobNOhcgx)
