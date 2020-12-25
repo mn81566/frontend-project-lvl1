@@ -12,3 +12,7 @@
 #Игра: "Калькулятор"
 ```brain-calc
 [![asciicast](https://asciinema.org/a/p2Gw7HL0hpuDCXfsgobNOhcgx.svg)](https://asciinema.org/a/p2Gw7HL0hpuDCXfsgobNOhcgx)
+
+#Игра: "НОД"
+```brain-gcd
+[![asciicast](https://asciinema.org/a/w7XBwSFWmdZwlM2LYK7rLUHVU.svg)](https://asciinema.org/a/w7XBwSFWmdZwlM2LYK7rLUHVU)
