@@ -15,6 +15,7 @@ const calc = () => {
     operator = operatorArr[getRandom(3)];
     console.log(`Question: ${operand1} ${operator} ${operand2}`);
   };
+  // eslint-disable-next-line no-eval
   const writeAnswerFunc = () => eval(`${operand1} ${operator} ${operand2}`);
 
   init(gamesRuleText, askQuestion, writeAnswerFunc);
