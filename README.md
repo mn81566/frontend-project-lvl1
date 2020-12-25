@@ -5,4 +5,4 @@
 
 [![Node CI](https://github.com/mn81566/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/mn81566/frontend-project-lvl1/actions)
 
-https://asciinema.org/a/clyfXWGx26KoRuqYzf9S0eCpi
+[![asciicast](https://asciinema.org/a/clyfXWGx26KoRuqYzf9S0eCpi.svg)](https://asciinema.org/a/clyfXWGx26KoRuqYzf9S0eCpi)
