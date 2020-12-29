@@ -11,7 +11,12 @@ const sayGameOver = (name, response, writeAnswer) => {
   console.log(`'${response}' is wrong answer ;(. Correct answer was '${writeAnswer}'.`);
   console.log(`Let's try again, ${name}!`);
 };
-const responseQuestion = () => readlineSync.question('Your answer: ');
+const responseQuestion = () => {
+  const res = readlineSync.question('Your answer: ');
+  if (res === 'yes') return 'yes';
+  if (res === 'no') return 'no';
+  return +res;
+};
 const isWrite = (response, writeAnswer) => response === writeAnswer;
 
 export const init = (gamesRuleText, askQuestion, getWriteAnswer) => {
@@ -21,7 +26,7 @@ export const init = (gamesRuleText, askQuestion, getWriteAnswer) => {
 
   for (let i = 0; i < roundCount; i += 1) {
     askQuestion();
-    const response = +responseQuestion();
+    const response = responseQuestion();
     const writeAnswer = getWriteAnswer();
 
     if (!isWrite(response, writeAnswer)) {
