@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import askName from '../src/cli.js';
-import parityGame from '../src/parityGame.js';
+import even from '../src/games/evenGame.js';
 
-const userName = askName();
-parityGame(userName);
+even();
