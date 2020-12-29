@@ -44,7 +44,7 @@ const progression = (progressionLength = 10) => {
 
     console.log(`Question: ${questionSrtArr}`);
   };
-  
+
   const writeAnswerFunc = () => hidedValue;
 
   init(gamesRuleText, askQuestion, writeAnswerFunc);
