@@ -1,11 +1,12 @@
-import { init, getRandom } from '../index.js';
+import { init } from '../index.js';
+import { getRandom, isEven, getWordAnswerByBool } from '../utils.js';
 
-const isEven = (value) => {
-  if (value % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
+// const isEven = (value) => {
+//   if (value % 2 === 0) {
+//     return 'yes';
+//   }
+//   return 'no';
+// };
 
 const even = () => {
   const gamesRuleText = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -16,7 +17,7 @@ const even = () => {
     console.log(`Question: ${numb}`);
   };
 
-  const writeAnswerFunc = () => isEven(numb);
+  const writeAnswerFunc = () => getWordAnswerByBool(isEven(numb));
 
   init(gamesRuleText, askQuestion, writeAnswerFunc);
 };

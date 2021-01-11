@@ -1,4 +1,5 @@
-import { init, getRandom } from '../index.js';
+import { init } from '../index.js';
+import { getRandom } from '../utils.js';
 
 const createProgressionArr = (length, firstValue, ratio) => {
   const res = [];

@@ -1,40 +1,43 @@
 import readlineSync from 'readline-sync';
-import askName from './cli.js';
+// import askName from './cli.js';
 
 export const getRandom = (max) => Math.floor(Math.random() * Math.floor(max));
 // const isEven = (value) => value % 2 === 0;
+const askName = () => {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+
+  return name;
+};
 
 const roundCount = 3;
-const sayRules = (str) => console.log(str);
-const sayCongratulations = (name) => console.log(`Congratulations, ${name}!`);
-const sayGameOver = (name, response, writeAnswer) => {
-  console.log(`'${response}' is wrong answer ;(. Correct answer was '${writeAnswer}'.`);
-  console.log(`Let's try again, ${name}!`);
-};
-const responseQuestion = () => {
-  const res = readlineSync.question('Your answer: ');
-  if (res === 'yes') return 'yes';
-  if (res === 'no') return 'no';
-  return +res;
-};
-const isWrite = (response, writeAnswer) => response === writeAnswer;
+// const getQuestionResponse = () => {
+//   const res = readlineSync.question('Your answer: ');
+//   // if (res === 'yes') return 'yes';
+//   // if (res === 'no') return 'no';
+//   // return +res;
+//   return res;
+// };
+// const isRight = (response, writeAnswer) => response === writeAnswer;
 
-export const init = (gamesRuleText, askQuestion, getWriteAnswer) => {
+export const init = (gamesRuleText, askQuestion, isRightRes) => {
   const userName = askName();
 
-  sayRules(gamesRuleText);
+  console.log(gamesRuleText);
 
   for (let i = 0; i < roundCount; i += 1) {
     askQuestion();
-    const response = responseQuestion();
-    const writeAnswer = getWriteAnswer();
+    // const response = getQuestionResponse();
+    // const writeAnswer = getWriteAnswer();
 
-    if (!isWrite(response, writeAnswer)) {
-      sayGameOver(userName, response, writeAnswer);
+    if (!isRightRes()) {
+      // console.log(`'${response}' is wrong answer ;(. Correct answer was '${writeAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
   }
-  sayCongratulations(userName);
+  console.log(`Congratulations, ${userName}`);
 };
 
 // export default init;
