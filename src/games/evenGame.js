@@ -1,25 +1,15 @@
-import { init } from '../index.js';
+import initGame from '../index.js';
 import { getRandom, isEven, getWordAnswerByBool } from '../utils.js';
 
-// const isEven = (value) => {
-//   if (value % 2 === 0) {
-//     return 'yes';
-//   }
-//   return 'no';
-// };
+const gamesRuleText = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const even = () => {
-  const gamesRuleText = 'Answer "yes" if the number is even, otherwise answer "no".';
-  let numb = 0;
+const generateEvenGameData = () => {
+  const numb = getRandom(100);
+  const questionText = `Question: ${numb}`;
 
-  const askQuestion = () => {
-    numb = getRandom(100);
-    console.log(`Question: ${numb}`);
-  };
+  const rightAnswer = getWordAnswerByBool(isEven(numb));
 
-  const writeAnswerFunc = () => getWordAnswerByBool(isEven(numb));
-
-  init(gamesRuleText, askQuestion, writeAnswerFunc);
+  return [questionText, rightAnswer];
 };
 
-export default even;
+export default () => initGame(gamesRuleText, generateEvenGameData);

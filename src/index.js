@@ -15,22 +15,24 @@ const getQuestionResponse = () => {
   return res;
 };
 
-export const init = (params) => {
-  const [gamesRuleText] = params();
+const initGame = (gamesRuleText, getGameData) => {
   const userName = askName();
 
   console.log(gamesRuleText);
 
   for (let i = 0; i < roundCount; i += 1) {
-    const [, questionText, isRightRes, writeAnswer] = params();
+    const [questionText, rightAnswer] = getGameData();
     console.log(questionText);
     const response = getQuestionResponse();
 
-    if (!isRightRes(response, writeAnswer)) {
-      console.log(`'${response}' is wrong answer ;(. Correct answer was '${writeAnswer}'.`);
+    // if (!isRightRes(response, rightAnswer)) {
+    if (response !== rightAnswer) {
+      console.log(`'${response}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
   }
   console.log(`Congratulations, ${userName}`);
 };
+
+export default initGame;
