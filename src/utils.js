@@ -1,4 +1,11 @@
-export const getRandom = (max) => Math.floor(Math.random() * Math.floor(max));
+// export const getRandom = (max) => Math.floor(Math.random() * (Math.floor(max));
+// У нас же мин не обязательный параметр по заданию?
+// Поэтому сделал его вторым в сигнатуре. Поменять местами?
+export const getRandom = (max, min = 0) => {
+  const minValue = Math.ceil(min);
+  const maxValue = Math.floor(max);
+  return Math.floor(Math.random() * (maxValue - minValue)) + minValue;
+};
 export const isEven = (value) => value % 2 === 0;
 
 export const getWordAnswerByBool = (boolQuestion, wordTrue = 'yes', wordFalse = 'no') => {
@@ -37,4 +44,15 @@ export const getGCDByEuclid = (a, b) => {
     return a;
   }
   return getGCDByEuclid(b, a % b);
+};
+
+export const createProgressionArr = (length, firstValue, ratio) => {
+  const res = [];
+  let value = firstValue;
+
+  for (let index = 0; index < length; index += 1) {
+    res.push(value);
+    value += ratio;
+  }
+  return res;
 };
