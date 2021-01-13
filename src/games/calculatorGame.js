@@ -2,7 +2,7 @@
 // import { getRandom } from './index.js';
 // import readlineSync from 'readline-sync';
 import { init } from '../index.js';
-import { getRandom } from '../utils.js';
+import { getRandom, calcWithStringOperator } from '../utils.js';
 
 // const getQuestionResponse = () => {
 //   const res = readlineSync.question('Your answer: ');
@@ -22,7 +22,8 @@ export const calc = () => {
   const questionText = `Question: ${operand1} ${operator} ${operand2}`;
 
   // eslint-disable-next-line no-eval
-  const getWriteAnswer = () => eval(`${operand1} ${operator} ${operand2}`);
+  // const getWriteAnswer = () => eval(`${operand1} ${operator} ${operand2}`);
+  const getWriteAnswer = () => calcWithStringOperator(operand1, operator, operand2);
   const writeAnswer = getWriteAnswer();
   // const isRightRes = isRight(getQuestionResponse, writeAnswerFunc);
 

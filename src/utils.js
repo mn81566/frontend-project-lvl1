@@ -7,3 +7,17 @@ export const getWordAnswerByBool = (boolQuestion, wordTrue = 'yes', wordFalse = 
   }
   return wordFalse;
 };
+
+export const calcWithStringOperator = (operand1, operator, operand2) => {
+  switch (operator) {
+    case '+':
+      return Number(operand1) + Number(operand2);
+    case '-':
+      return Number(operand1) - Number(operand2);
+    case '*':
+      return Number(operand1) * Number(operand2);
+    default:
+      break;
+  }
+  return false;
+};
