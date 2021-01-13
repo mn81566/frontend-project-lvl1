@@ -12,27 +12,30 @@ const askName = () => {
 };
 
 const roundCount = 3;
-// const getQuestionResponse = () => {
-//   const res = readlineSync.question('Your answer: ');
-//   // if (res === 'yes') return 'yes';
-//   // if (res === 'no') return 'no';
-//   // return +res;
-//   return res;
-// };
+const getQuestionResponse = () => {
+  const res = readlineSync.question('Your answer: ');
+  // if (res === 'yes') return 'yes';
+  // if (res === 'no') return 'no';
+  // return +res;
+  return res;
+};
 // const isRight = (response, writeAnswer) => response === writeAnswer;
 
-export const init = (gamesRuleText, askQuestion, isRightRes) => {
+// export const init = (gamesRuleText, questionText, isRightRes, writeAnswer) => {
+export const init = (params) => {
+  const [gamesRuleText] = params();
   const userName = askName();
 
   console.log(gamesRuleText);
 
   for (let i = 0; i < roundCount; i += 1) {
-    askQuestion();
-    // const response = getQuestionResponse();
+    const [, questionText, isRightRes, writeAnswer] = params();
+    console.log(questionText);
+    const response = getQuestionResponse();
     // const writeAnswer = getWriteAnswer();
 
-    if (!isRightRes()) {
-      // console.log(`'${response}' is wrong answer ;(. Correct answer was '${writeAnswer}'.`);
+    if (!isRightRes(response, writeAnswer)) {
+      console.log(`'${response}' is wrong answer ;(. Correct answer was '${writeAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
