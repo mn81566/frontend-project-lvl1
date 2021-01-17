@@ -1,11 +1,18 @@
 import initGame from '../index.js';
-import { getRandom, getGCDByEuclid } from '../utils.js';
+import { getRandom } from '../utils.js';
+
+const getGCDByEuclid = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return getGCDByEuclid(b, a % b);
+};
 
 const gamesRuleText = 'Find the greatest common divisor of given numbers.';
 
 const generateGcdGameData = () => {
-  const numb1 = getRandom(100);
-  const numb2 = getRandom(100);
+  const numb1 = getRandom(0, 100);
+  const numb2 = getRandom(0, 100);
   const questionText = `Question: ${numb1} ${numb2}`;
 
   const rightAnswer = String(getGCDByEuclid(numb1, numb2));

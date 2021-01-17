@@ -1,5 +1,16 @@
 import initGame from '../index.js';
-import { getRandom, createProgressionArr } from '../utils.js';
+import { getRandom } from '../utils.js';
+
+const createProgressionArr = (length, firstValue, ratio) => {
+  const res = [];
+  let value = firstValue;
+
+  for (let index = 0; index < length; index += 1) {
+    res.push(value);
+    value += ratio;
+  }
+  return res;
+};
 
 const gamesRuleText = 'What number is missing in the progression?';
 
@@ -9,10 +20,10 @@ const generateProgressionGameData = (progressionLength = 10) => {
   }
 
   const disguiseStr = '..';
-  const numbFirst = getRandom(100);
-  const ratio = getRandom(10);
+  const numbFirst = getRandom(0, 100);
+  const ratio = getRandom(0, 10);
   const progressionArr = createProgressionArr(progressionLength, numbFirst, ratio);
-  const randomUnnounPos = getRandom(progressionLength);
+  const randomUnnounPos = getRandom(0, progressionLength);
   const hidedValue = progressionArr[randomUnnounPos];
   // Создал новый массив, чтобы не менять исходный
   const progressionQuestionArr = [...progressionArr];
