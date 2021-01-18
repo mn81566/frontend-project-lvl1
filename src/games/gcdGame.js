@@ -11,11 +11,11 @@ const getGCDByEuclid = (a, b) => {
 const gamesRuleText = 'Find the greatest common divisor of given numbers.';
 
 const generateGcdGameData = () => {
-  const numb1 = getRandom(0, 100);
-  const numb2 = getRandom(0, 100);
-  const questionText = `${numb1} ${numb2}`;
+  const num1 = getRandom(0, 100);
+  const num2 = getRandom(0, 100);
+  const questionText = `${num1} ${num2}`;
 
-  const rightAnswer = String(getGCDByEuclid(numb1, numb2));
+  const rightAnswer = String(getGCDByEuclid(num1, num2));
 
   return [questionText, rightAnswer];
 };

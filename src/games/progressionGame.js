@@ -13,33 +13,35 @@ const createProgressionArr = (firstValue, length, ratio) => {
 };
 
 const gamesRuleText = 'What number is missing in the progression?';
+const progressionLengthMin = 5;
+const progressionLengthMax = 10;
 
-const getArrWithHideEl = (arr, positionHidedEl, disguiseStr = '..') => {
+const generateQuestion = (arr, positionHidedEl, disguiseStr = '..') => {
   const resArr = [...arr];
   resArr[positionHidedEl] = disguiseStr;
-  return resArr;
+  return resArr.join(' ');
 };
 
-// const generateProgressionGameData = (progressionLength = 10) => {
-const generateProgressionGameData = (progressionLengthMin = 5, progressionLengthMax = 10) => {
+// const generateProgressionGameData = (progressionLengthMin = 5, progressionLengthMax = 10) => {
+const generateProgressionGameData = () => {
   if (progressionLengthMin < 5) {
     return false;
   }
 
   const progressionLength = getRandom(progressionLengthMin, progressionLengthMax);
   // const disguiseStr = '..';
-  const numbFirst = getRandom(0, 100);
+  const numFirst = getRandom(0, 100);
   const ratio = getRandom(0, 10);
-  const progressionArr = createProgressionArr(numbFirst, progressionLength, ratio);
+  const progressionArr = createProgressionArr(numFirst, progressionLength, ratio);
   const randomUnnounPos = getRandom(0, progressionLength - 1);
-  const hidedValue = progressionArr[randomUnnounPos];
+  // const hidedValue = progressionArr[randomUnnounPos];
   // Создал новый массив, чтобы не менять исходный
   // const progressionQuestionArr = [...progressionArr];
   // progressionQuestionArr[randomUnnounPos] = disguiseStr;
-  const questionSrtArr = getArrWithHideEl(progressionArr, randomUnnounPos).join(' ');
+  // const questionSrtArr = generateQuestion(progressionArr, randomUnnounPos).join(' ');
 
-  const questionText = `${questionSrtArr}`;
-  const rightAnswer = String(hidedValue);
+  const questionText = generateQuestion(progressionArr, randomUnnounPos);
+  const rightAnswer = String(progressionArr[randomUnnounPos]);
 
   return [questionText, rightAnswer];
 };
