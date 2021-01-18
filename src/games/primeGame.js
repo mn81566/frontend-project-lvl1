@@ -1,5 +1,5 @@
 import initGame from '../index.js';
-import { getRandom, getWordAnswerByBool } from '../utils.js';
+import { getRandom } from '../utils.js';
 
 const isPrime = (num) => {
   const terminalValue = Math.sqrt(num);
@@ -14,11 +14,11 @@ const isPrime = (num) => {
 const gamesRuleText = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generatePrimeGameData = () => {
-  const numb = getRandom(0, 100);
-  const questionText = `Question: ${numb}`;
+  const num = getRandom(0, 100);
+  const questionText = `${num}`;
 
-  // const rightAnswer = isPrime(numb) === true ? 'yes' : 'no';
-  const rightAnswer = getWordAnswerByBool(isPrime(numb));
+  // const rightAnswer = getWordAnswerByBool(isPrime(num));
+  const rightAnswer = isPrime(num) ? 'yes' : 'no';
   return [questionText, rightAnswer];
 };
 

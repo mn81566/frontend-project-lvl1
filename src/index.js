@@ -16,7 +16,7 @@ const initGame = (gamesRuleText, getGameData) => {
 
   for (let i = 0; i < roundCount; i += 1) {
     const [questionText, rightAnswer] = getGameData();
-    console.log(questionText);
+    console.log(`Question: ${questionText}`);
     const response = getQuestionAnswer();
 
     // if (!isRightRes(response, rightAnswer)) {

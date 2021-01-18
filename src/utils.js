@@ -5,9 +5,11 @@ export const getRandom = (min, max) => {
 };
 
 // Используется в 2-х играх. Может оставить здесь?
-export const getWordAnswerByBool = (boolQuestion, wordTrue = 'yes', wordFalse = 'no') => {
-  if (boolQuestion === true) {
-    return wordTrue;
-  }
-  return wordFalse;
-};
+// export const getWordAnswerByBool = (boolQuestion, wordTrue = 'yes', wordFalse = 'no') => {
+//   if (boolQuestion === true) {
+//     return wordTrue;
+//   }
+//   return wordFalse;
+// };
+
+export default getRandom;
