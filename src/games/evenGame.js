@@ -8,7 +8,7 @@ const gamesRuleText = 'Answer "yes" if the number is even, otherwise answer "no"
 
 const generateEvenGameData = () => {
   const num = getRandom(0, 100);
-  const questionText = `${num}`;
+  const questionText = String(num);
 
   // const rightAnswer = getWordAnswerByBool(isEven(num));
   const rightAnswer = isEven(num) ? 'yes' : 'no';

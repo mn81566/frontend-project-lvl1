@@ -15,7 +15,7 @@ const gamesRuleText = 'Answer "yes" if given number is prime. Otherwise answer "
 
 const generatePrimeGameData = () => {
   const num = getRandom(0, 100);
-  const questionText = `${num}`;
+  const questionText = String(num);
 
   // const rightAnswer = getWordAnswerByBool(isPrime(num));
   const rightAnswer = isPrime(num) ? 'yes' : 'no';
