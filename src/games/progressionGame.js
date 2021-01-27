@@ -1,47 +1,49 @@
 import initGame from '../index.js';
 import { getRandom } from '../utils.js';
 
-const createProgressionArr = (firstValue, length, ratio) => {
-  const res = [];
-  let value = firstValue;
+const createProgression = (firstProgressionEl, length, ratio) => {
+  const progression = [];
+  let progressionEl = firstProgressionEl;
 
   for (let index = 0; index < length; index += 1) {
-    res.push(value);
-    value += ratio;
+    progression.push(progressionEl);
+    progressionEl += ratio;
   }
-  return res;
+  return progression;
 };
 
 const gamesRuleText = 'What number is missing in the progression?';
+const progressionLengthMinAllowable = 5;
 const progressionLengthMin = 5;
 const progressionLengthMax = 10;
 
-const generateQuestion = (arr, positionHidedEl, disguiseStr = '..') => {
-  const resArr = [...arr];
-  resArr[positionHidedEl] = disguiseStr;
-  return resArr.join(' ');
+const generateQuestion = (progression, positionHidedEl, disguise = '..') => {
+  const hidedElProgression = [...progression];
+  hidedElProgression[positionHidedEl] = disguise;
+  return hidedElProgression.join(' ');
 };
 
 // const generateProgressionGameData = (progressionLengthMin = 5, progressionLengthMax = 10) => {
 const generateProgressionGameData = () => {
-  if (progressionLengthMin < 5) {
-    return false;
+  if (progressionLengthMin < progressionLengthMinAllowable) {
+    throw new Error(`Minimal value of progression length (${progressionLengthMin}) 
+    less then allowable (${progressionLengthMinAllowable})`);
   }
 
   const progressionLength = getRandom(progressionLengthMin, progressionLengthMax);
-  // const disguiseStr = '..';
+  // const disguise = '..';
   const numFirst = getRandom(0, 100);
   const ratio = getRandom(0, 10);
-  const progressionArr = createProgressionArr(numFirst, progressionLength, ratio);
+  const progression = createProgression(numFirst, progressionLength, ratio);
   const randomUnnounPos = getRandom(0, progressionLength - 1);
-  // const hidedValue = progressionArr[randomUnnounPos];
+  // const hidedValue = progression[randomUnnounPos];
   // Создал новый массив, чтобы не менять исходный
-  // const progressionQuestionArr = [...progressionArr];
-  // progressionQuestionArr[randomUnnounPos] = disguiseStr;
-  // const questionSrtArr = generateQuestion(progressionArr, randomUnnounPos).join(' ');
+  // const progressionQuestion = [...progression];
+  // progressionQuestion[randomUnnounPos] = disguise;
+  // const questionSrt = generateQuestion(progression, randomUnnounPos).join(' ');
 
-  const questionText = generateQuestion(progressionArr, randomUnnounPos);
-  const rightAnswer = String(progressionArr[randomUnnounPos]);
+  const questionText = generateQuestion(progression, randomUnnounPos);
+  const rightAnswer = String(progression[randomUnnounPos]);
 
   return [questionText, rightAnswer];
 };

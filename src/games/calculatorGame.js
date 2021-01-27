@@ -21,7 +21,7 @@ const gamesRuleText = 'What is the result of the expression?';
 const generateCalcGameData = () => {
   const operand1 = getRandom(100, -100);
   const operand2 = getRandom(0, 100);
-  const operator = operators[getRandom(0, 2)];
+  const operator = operators[operators.length - 1];
   const questionText = `${operand1} ${operator} ${operand2}`;
 
   // const getWriteAnswer = () => calcWithStringOperator(operand1, operator, operand2);

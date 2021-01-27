@@ -2,8 +2,8 @@ import readlineSync from 'readline-sync';
 
 const roundCount = 3;
 const getQuestionAnswer = () => {
-  const res = readlineSync.question('Your answer: ');
-  return res;
+  const answer = readlineSync.question('Your answer: ');
+  return answer;
 };
 
 const initGame = (gamesRuleText, getGameData) => {

@@ -2,8 +2,8 @@ import initGame from '../index.js';
 import { getRandom } from '../utils.js';
 
 const isPrime = (num) => {
-  const terminalValue = Math.sqrt(num);
-  for (let i = 2; i <= terminalValue; i += 1) {
+  const numSqrt = Math.sqrt(num);
+  for (let i = 2; i <= numSqrt; i += 1) {
     if (num % i === 0) {
       return false;
     }
