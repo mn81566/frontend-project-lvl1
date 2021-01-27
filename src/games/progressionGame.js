@@ -13,7 +13,6 @@ const createProgression = (firstProgressionEl, length, ratio) => {
 };
 
 const gamesRuleText = 'What number is missing in the progression?';
-const progressionLengthMinAllowable = 5;
 const progressionLengthMin = 5;
 const progressionLengthMax = 10;
 
@@ -25,11 +24,6 @@ const generateQuestion = (progression, positionHidedEl, disguise = '..') => {
 
 // const generateProgressionGameData = (progressionLengthMin = 5, progressionLengthMax = 10) => {
 const generateProgressionGameData = () => {
-  if (progressionLengthMin < progressionLengthMinAllowable) {
-    throw new Error(`Minimal value of progression length (${progressionLengthMin}) 
-    less then allowable (${progressionLengthMinAllowable})`);
-  }
-
   const progressionLength = getRandom(progressionLengthMin, progressionLengthMax);
   // const disguise = '..';
   const numFirst = getRandom(0, 100);
